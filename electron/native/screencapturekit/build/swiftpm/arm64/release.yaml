@@ -1,0 +1,107 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module": ["<OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module>"]
+  "OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module": ["<OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module>","<OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module>","<openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe>","<openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe>"]
+  "openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe": ["<openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe>"]
+  "openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe": ["<openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe>"]
+  "test": ["<OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module>","<OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module>","<openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe>","<openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe>"]
+default: "main"
+nodes:
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenMacOSCursorHelper/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenScreenCaptureKitHelper/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenMacOSCursorHelper/main.swift"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/sources"]
+    description: "Write auxiliary file /Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/sources"
+
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenScreenCaptureKitHelper/main.swift"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/sources"]
+    description: "Write auxiliary file /Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/sources"
+
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/main.swift.o"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper.product/Objects.LinkFileList"
+
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/main.swift.o"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper.product/Objects.LinkFileList"
+
+  "/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module>":
+    tool: phony
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenMacOSCursorHelper.swiftmodule"]
+    outputs: ["<OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module>"]
+
+  "<OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module>":
+    tool: phony
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenScreenCaptureKitHelper.swiftmodule"]
+    outputs: ["<OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module>"]
+
+  "<openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe>":
+    tool: phony
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper"]
+    outputs: ["<openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe>"]
+
+  "<openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe>":
+    tool: phony
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper"]
+    outputs: ["<openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe>"]
+
+  "C.OpenScreenMacOSCursorHelper-arm64-apple-macosx-release.module":
+    tool: shell
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenMacOSCursorHelper/main.swift","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/sources"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenMacOSCursorHelper.swiftmodule"]
+    description: "Compiling Swift Module 'OpenScreenMacOSCursorHelper' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","OpenScreenMacOSCursorHelper","-emit-dependencies","-emit-module","-emit-module-path","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenMacOSCursorHelper.swiftmodule","-output-file-map","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/output-file-map.json","-whole-module-optimization","-num-threads","18","-c","@/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/sources","-I","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","18","-serialize-diagnostics","-O","-j18","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","OpenScreenMacOSCursorHelper_main","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","screencapturekit"]
+
+  "C.OpenScreenScreenCaptureKitHelper-arm64-apple-macosx-release.module":
+    tool: shell
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenScreenCaptureKitHelper/main.swift","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/sources"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenScreenCaptureKitHelper.swiftmodule"]
+    description: "Compiling Swift Module 'OpenScreenScreenCaptureKitHelper' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","OpenScreenScreenCaptureKitHelper","-emit-dependencies","-emit-module","-emit-module-path","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules/OpenScreenScreenCaptureKitHelper.swiftmodule","-output-file-map","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/output-file-map.json","-whole-module-optimization","-num-threads","18","-c","@/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/sources","-I","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","18","-serialize-diagnostics","-O","-j18","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","OpenScreenScreenCaptureKitHelper_main","-parse-as-library","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","screencapturekit"]
+
+  "C.openscreen-macos-cursor-helper-arm64-apple-macosx-release.exe":
+    tool: shell
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenMacOSCursorHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper.product/Objects.LinkFileList"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper"]
+    description: "Linking ./build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release","-o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper","-module-name","openscreen_macos_cursor_helper","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_OpenScreenMacOSCursorHelper_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-macos-cursor-helper.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx13.0","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.openscreen-screencapturekit-helper-arm64-apple-macosx-release.exe":
+    tool: shell
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/OpenScreenScreenCaptureKitHelper.build/main.swift.o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper.product/Objects.LinkFileList"]
+    outputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper"]
+    description: "Linking ./build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release","-o","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper","-module-name","openscreen_screencapturekit_helper","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-dead_strip","-Xlinker","-alias","-Xlinker","_OpenScreenScreenCaptureKitHelper_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/build/swiftpm/arm64/arm64-apple-macosx/release/openscreen-screencapturekit-helper.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx13.0","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenMacOSCursorHelper/","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Sources/OpenScreenScreenCaptureKitHelper/","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Package.swift","/Users/ningjinpeng/Desktop/Git/Github/open/openscreen/electron/native/screencapturekit/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

@@ -1,0 +1,105 @@
+export interface ProjectMedia {
+	screenVideoPath: string;
+	webcamVideoPath?: string;
+	cursorCaptureMode?: CursorCaptureMode;
+}
+
+export type CursorCaptureMode = "editable-overlay" | "system";
+
+export interface RecordingSession extends ProjectMedia {
+	createdAt: number;
+	/** User-assigned display name shown in the project list. */
+	name?: string;
+}
+
+/**
+ * Lightweight listing entry for the recordings sidebar. Sessions whose screen
+ * video no longer exists on disk are filtered out by the main process.
+ */
+export interface RecordingSessionSummary {
+	screenVideoPath: string;
+	webcamVideoPath?: string;
+	cursorCaptureMode?: CursorCaptureMode;
+	createdAt: number;
+	/** Size of the screen video file in bytes, for display only. */
+	screenVideoBytes: number;
+	/** User-assigned display name shown in the project list. */
+	name?: string;
+}
+
+export interface RecordedVideoAssetInput {
+	fileName: string;
+	videoData: ArrayBuffer;
+}
+
+export interface StoreRecordedSessionInput {
+	screen: RecordedVideoAssetInput;
+	webcam?: RecordedVideoAssetInput;
+	createdAt?: number;
+	cursorCaptureMode?: CursorCaptureMode;
+	/**
+	 * Recording wall-clock duration (ms). The main process patches the WebM Duration
+	 * header on streamed recordings (the renderer no longer holds the bytes). Browser
+	 * MediaRecorder writes no/zero duration, which breaks the editor seek bar and
+	 * timeline for anything that took the streaming path.
+	 */
+	durationMs?: number;
+}
+
+export function normalizeCursorCaptureMode(value: unknown): CursorCaptureMode | undefined {
+	return value === "editable-overlay" || value === "system" ? value : undefined;
+}
+
+function normalizePath(value: unknown): string | undefined {
+	if (typeof value !== "string") {
+		return undefined;
+	}
+
+	const trimmed = value.trim();
+	return trimmed ? trimmed : undefined;
+}
+
+export function normalizeProjectMedia(candidate: unknown): ProjectMedia | null {
+	if (!candidate || typeof candidate !== "object") {
+		return null;
+	}
+
+	const raw = candidate as Partial<ProjectMedia>;
+	const screenVideoPath = normalizePath(raw.screenVideoPath);
+
+	if (!screenVideoPath) {
+		return null;
+	}
+
+	const webcamVideoPath = normalizePath(raw.webcamVideoPath);
+	const cursorCaptureMode = normalizeCursorCaptureMode(raw.cursorCaptureMode);
+
+	return {
+		screenVideoPath,
+		...(webcamVideoPath ? { webcamVideoPath } : {}),
+		...(cursorCaptureMode ? { cursorCaptureMode } : {}),
+	};
+}
+
+export function normalizeRecordingSession(candidate: unknown): RecordingSession | null {
+	if (!candidate || typeof candidate !== "object") {
+		return null;
+	}
+
+	const raw = candidate as Partial<RecordingSession>;
+	const media = normalizeProjectMedia(raw);
+	if (!media) {
+		return null;
+	}
+
+	const name = normalizePath(raw.name);
+
+	return {
+		...media,
+		createdAt:
+			typeof raw.createdAt === "number" && Number.isFinite(raw.createdAt)
+				? raw.createdAt
+				: Date.now(),
+		...(name ? { name } : {}),
+	};
+}
